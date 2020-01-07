@@ -13,10 +13,18 @@
     <body>
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-                <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                Videogames Store
+                <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+                Videogames Friki
             </a>
+            
+            <a href="/new" class="btn btn-info">Add New Videogame</a>
+
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </nav>
+
         <div class="container mt-4 vg-featured ">
             <div class="row">
                 <div th:each="game : ${videogames}" class="col-md-3 mb-4">

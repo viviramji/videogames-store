@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/videogames.css" >
+        <title>Add new video game</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="/home">
+                <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+                Videogames Friki
+            </a>
+
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
+
+        <div class="container mt-4">
+            <div class="page-header">
+                <h2>New Videogame</h2>
+            </div>
+
+            <form action="#" th:action="@{/save}" th:object="${videogame}" method="POST">
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 controler-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="videogame's name" required="true" />
+                        <p class="alert alert-danger" typeth:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="col-sm-2 controler-label">Description</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" name="description" id="description" placeholder="videogame's description" required="true"></textarea>
+                        <p class="alert alert-danger" typeth:if="${#fields.hasErrors('description')}" th:errors="*{description}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ImgUrl" class="col-sm-2 controler-label">Image URL</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="ImgUrl" id="ImgUrl" placeholder="videogame's image url" required="true" />
+                        <p class="alert alert-danger" typeth:if="${#fields.hasErrors('ImgUrl')}" th:errors="*{ImgUrl}" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary"> Add </button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </body>
+</html>

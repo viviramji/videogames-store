@@ -5,7 +5,8 @@ import com.viviramji.videogames.repository.VideogameRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-//Clase de negocio (logica de negocio) en este caso existe un metodo para obtener los videojuegos destacados
+// Clase de negocio (logica de negocio) en este caso existe un metodo para 
+// obtener los videojuegos destacados
 @Service
 public class VideogameService {
     
@@ -18,5 +19,9 @@ public class VideogameService {
 
     public List<Videogame> getFeaturedVideogames() {
         return videogameRepo.findAll();
+    }
+    
+    public void save(Videogame videogame){
+        videogameRepo.save(videogame);
     }
 }

@@ -4,16 +4,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
 public class Videogame {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty
     private Integer id;
     private String name;
     private String description;
     private String imgUrl;
+    
+    public Videogame(String _name, String _description, String _imgUrl){
+        this.name = _name;
+        this.description = _description;
+        this.imgUrl = _imgUrl;
+    }
+    
+    public Videogame(){
+        super();
+        
+    }
 
     public Integer getId() {
         return id;
